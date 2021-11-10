@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1700.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolAPI", "SolAPI\SolAPI.csproj", "{21EC7D7D-E26B-4E85-92E7-3F4222F6793F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21EC7D7D-E26B-4E85-92E7-3F4222F6793F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21EC7D7D-E26B-4E85-92E7-3F4222F6793F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21EC7D7D-E26B-4E85-92E7-3F4222F6793F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21EC7D7D-E26B-4E85-92E7-3F4222F6793F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F535E411-9A90-4392-BE60-F966B60EB930}
+	EndGlobalSection
+EndGlobal
