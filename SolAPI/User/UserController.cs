@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Sol.Models;
 using Sol.Services;
 
-namespace Sol.Controllers {
+namespace Sol.Controllers
+{
 
 	[ApiController]
 	[Route("[controller]")]
@@ -12,22 +13,17 @@ namespace Sol.Controllers {
 		private readonly IUserService _userService;
 		public UserController(IUserService userService) => _userService = userService;
 
+
 		[HttpGet]
 		public ActionResult<List<User>> Get() => _userService.Get();
 
-		//[HttpGet]
-		//   public string Get()
-		//   {
-		//       return "hello this is a user";
-		//   }
 
 		[HttpGet("{id:length(24)}")]
 		public ActionResult<User> Get(string id)
 		{
 			var user = _userService.Get(id);
-			if (user == null) return NotFound();
-
-			return user;
+			if (user != null) return user;
+			return NotFound();
 		}
 	}
 }

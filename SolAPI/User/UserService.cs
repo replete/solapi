@@ -4,28 +4,29 @@ using Sol.Models;
 
 namespace Sol.Services
 {
-    public interface IUserService {
-        List<User> Get();
-        User Get(string id);
-    }
+	public interface IUserService
+	{
+		List<User> Get();
+		User Get(string id);
+	}
 
-    public class UserService: IUserService
-    {
-        public readonly IMongoCollection<User> _users;
+	public class UserService : IUserService
+	{
+		public readonly IMongoCollection<User> _users;
 
-        public UserService()
-        {
+		public UserService()
+		{
 
-            var conventionPack = new  ConventionPack {new CamelCaseElementNameConvention()};
-            ConventionRegistry.Register("camelCase", conventionPack, t => true);
+			var conventionPack = new ConventionPack { new CamelCaseElementNameConvention() };
+			ConventionRegistry.Register("camelCase", conventionPack, t => true);
 
-            var client = new MongoClient("mongodb://localhost:27017");
-            var database = client.GetDatabase("solcore");
-            _users = database.GetCollection<User>("users");
-        }
+			var client = new MongoClient("mongodb://localhost:27017");
+			var database = client.GetDatabase("solcore");
+			_users = database.GetCollection<User>("users");
+		}
 
-        public List<User> Get() => _users.Find(user => true).ToList();
+		public List<User> Get() => _users.Find(user => true).ToList();
 
-        public User Get(string id) => _users.Find<User>(user => user.Id == id).FirstOrDefault();
-    }
+		public User Get(string id) => _users.Find<User>(user => user.Id == id).FirstOrDefault();
+	}
 }
