@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Driver;
 using Sol.Models;
 
@@ -15,15 +15,17 @@ namespace Sol.Services
 
         public UserService()
         {
+
+            var conventionPack = new  ConventionPack {new CamelCaseElementNameConvention()};
+            ConventionRegistry.Register("camelCase", conventionPack, t => true);
+
             var client = new MongoClient("mongodb://localhost:27017");
             var database = client.GetDatabase("solcore");
             _users = database.GetCollection<User>("users");
         }
 
-        public List<User> Get() =>
-            _users.Find(user => true).ToList();
+        public List<User> Get() => _users.Find(user => true).ToList();
 
-        public User Get(string id) =>
-            _users.Find<User>(user => user.Id == id).FirstOrDefault();
+        public User Get(string id) => _users.Find<User>(user => user.Id == id).FirstOrDefault();
     }
 }
